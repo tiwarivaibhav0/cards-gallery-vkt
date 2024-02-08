@@ -16,6 +16,10 @@ ul {
 	margin-left: 10px;
 }
 
+button {
+	cursor: pointer;
+}
+
 .card-gallery {
 	display: flex;
 	flex-wrap: wrap;
@@ -89,7 +93,7 @@ ul {
 	border-right: 1px solid #e8e8e8;
 }
 
-.icon-btn {
+.icon-btn,.modal-heading > button {
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -104,9 +108,103 @@ ul {
 	color: rgb(255, 0, 0);
 }
 
-@media screen and (max-width: 1200px) {
+
+
+.modal-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: block;
+	z-index: 9999;
+  }
+  
+  .modal-content {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	width: 40%;
+  }
+
+  .modal-heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid rgba(18, 0, 0, 0.4);
+
+  }
+
+  .form {
+	padding: 25px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	align-items: flex-end;
+	padding-bottom: 70px ;
+	border-bottom: 1px solid rgba(18, 0, 0, 0.4);
+  }
+
+  .form-element {
+	width: 90%;
+	display: flex;
+	gap: 20px;
+	align-items: center;
+
+  }
+  
+  .form-element label {
+    width: 100px;
+  }
+
+  .input-container {
+	width: 100%;
+  }
+
+  .input-container input {
+	padding: 10px;
+	width: 100%;
+	outline: none;
+  }
+ 
+  .error {
+	color: red;
+  }
+  
+  .button-container {
+	display: flex;
+	justify-content: flex-end;
+	gap: 15px;
+	margin-top: 20px;
+  }
+  
+  .button-container button {
+	padding: 15px;
+	font-size: 18px;
+	border-radius: 5px;
+  }
+  .close-button {
+	border: 1px solid rgb(182, 176, 176);
+	background-color: #fff;
+  }
+
+  .save-button {
+	border: 1px solid #6949f5;
+	background-color: #6949f5;
+	color: #fff;
+  }
+  
+  @media screen and (max-width: 1200px) {
 	.card {
 		width: calc(33.33% - 20px);
+	}
+	.modal-content {
+		width: 80%;
 	}
 }
 

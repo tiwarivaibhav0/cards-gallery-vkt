@@ -1,28 +1,48 @@
 import React, { useState } from "react";
 
-const Modal = ({ data, onSave, setData }) => {
-  const [name, setName] = useState(data.name || "");
-  const [email, setEmail] = useState(data.email || "");
-  const [phone, setPhone] = useState(data.phone || "");
+const Modal = ({ data, setData, index, setCardsData }) => {
+  const [formData, setFormData] = useState({
+    name: data.name || "",
+    email: data.email || "",
+    phone: data.phone || "",
+    website: data.website || "",
+  });
+
   const [errors, setErrors] = useState({
     name: "",
     email: "",
     phone: "",
+    website: "",
   });
 
+  const onSave = () => {
+    setCardsData((prevData) => {
+      const newData = [...prevData];
+      newData[index].name = formData.name;
+      newData[index].email = formData.email;
+      newData[index].phone = formData.phone;
+      newData[index].website = formData.website;
+      return newData;
+    });
+    setData(undefined);
+  };
   const handleSave = () => {
     const newErrors = {};
 
-    if (!name) {
+    if (!formData.name) {
       newErrors.name = "Name is required.";
     }
 
-    if (!email) {
+    if (!formData.email) {
       newErrors.email = "Email is required.";
     }
 
-    if (!phone) {
+    if (!formData.phone) {
       newErrors.phone = "Phone is required.";
+    }
+
+    if (!formData.website) {
+      newErrors.website = "Website is required.";
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -30,99 +50,86 @@ const Modal = ({ data, onSave, setData }) => {
       return;
     }
 
-    onSave({ name, email, phone });
+    onSave();
   };
+
   const onClose = () => {
     setData(undefined);
   };
+
   const handleInputChange = (field, value) => {
     setErrors({ ...errors, [field]: "" });
 
-    switch (field) {
-      case "name":
-        setName(value);
-        break;
-      case "email":
-        setEmail(value);
-        break;
-      case "phone":
-        setPhone(value);
-        break;
-      default:
-        break;
-    }
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
   };
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-        display: "block",
-        zIndex: 9999,
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          backgroundColor: "white",
-          padding: "20px",
-          borderRadius: "8px",
-        }}
-      >
-        <button
-          onClick={onClose}
-          style={{
-            position: "absolute",
-            top: 0,
-            right: 0,
-            border: "none",
-            background: "none",
-            fontSize: "20px",
-            cursor: "pointer",
-          }}
-        >
-          ×
-        </button>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => handleInputChange("name", e.target.value)}
-          />
-          {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+    <div className="modal-container">
+      <div className="modal-content">
+        <div className="modal-heading">
+          <h4>Basic Modal</h4>
+          <button onClick={onClose}>X</button>
         </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => handleInputChange("email", e.target.value)}
-          />
-          {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
-        </div>
-        <div>
-          <label>Phone:</label>
-          <input
-            type="text"
-            value={phone}
-            onChange={(e) => handleInputChange("phone", e.target.value)}
-          />
-          {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
-        </div>
-        <div style={{ textAlign: "right", marginTop: "20px" }}>
-          <button onClick={onClose} style={{ marginRight: "10px" }}>
-            Close
+
+        <form className="form">
+          <div className="form-element">
+            <label>Name:</label>
+            <div className="input-container">
+              <input
+                type="text"
+                value={formData.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+              />
+              {errors.name && <p className="error">{errors.name}</p>}
+            </div>
+          </div>
+
+          <div className="form-element">
+            <label>Email:</label>
+            <div className="input-container">
+              <input
+                type="text"
+                value={formData.email}
+                onChange={(e) => handleInputChange("email", e.target.value)}
+              />
+              {errors.email && <p className="error">{errors.email}</p>}
+            </div>
+          </div>
+          <div className="form-element">
+            <label>
+              <span className="error">*</span> Phone:
+            </label>
+            <div className="input-container">
+              <input
+                type="text"
+                value={formData.phone}
+                onChange={(e) => handleInputChange("phone", e.target.value)}
+              />
+              {errors.phone && <p className="error">{errors.phone}</p>}
+            </div>
+          </div>
+          <div className="form-element">
+            <label>Website:</label>
+            <div className="input-container">
+              <input
+                type="text"
+                value={formData.website}
+                onChange={(e) => handleInputChange("website", e.target.value)}
+              />
+              {errors.website && <p className="error">{errors.website}</p>}
+            </div>
+          </div>
+        </form>
+        <div className="button-container">
+          <button onClick={onClose} className="close-button">
+            Cancel
           </button>
-          <button onClick={handleSave}>Save</button>
+          <button onClick={handleSave} className="save-button">
+            OK
+          </button>
         </div>
       </div>
     </div>

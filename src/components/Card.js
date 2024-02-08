@@ -73,7 +73,14 @@ const Card = ({ card, index, setCardsData }) => {
           </span>
         </li>
       </ul>
-      {modalData && <Modal data={modalData} setData={setModalData}/>}
+      {modalData && (
+        <Modal
+          data={modalData}
+          setData={setModalData}
+          index={index}
+          setCardsData={setCardsData}
+        />
+      )}
     </div>
   );
 };
