@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import { closeIcon, emailRegex, formFields } from "../utils/constants";
 
 const Modal = ({ data, setData, index, setCardsData }) => {
@@ -34,16 +35,16 @@ const Modal = ({ data, setData, index, setCardsData }) => {
 			newErrors.name = "Name is required.";
 		}
 
-		if (!formData.email) {
+		if (!formData.email.trim()) {
 			newErrors.email = "Email is required.";
 		} else if (!emailRegex.test(formData.email))
 			newErrors.email = "Invalid Email.";
 
-		if (!formData.phone) {
+		if (!formData.phone.trim()) {
 			newErrors.phone = "Phone is required.";
 		}
 
-		if (!formData.website) {
+		if (!formData.website.trim()) {
 			newErrors.website = "Website is required.";
 		}
 
@@ -60,7 +61,7 @@ const Modal = ({ data, setData, index, setCardsData }) => {
 	};
 
 	const handleInputChange = (field, value) => {
-		if (value === "")
+		if (value.trim() === "")
 			setErrors({ ...errors, [field]: formFields[field] + " is required" });
 		else setErrors({ ...errors, [field]: "" });
 
@@ -70,9 +71,18 @@ const Modal = ({ data, setData, index, setCardsData }) => {
 		});
 	};
 
+	useEffect(() => {
+		const modal = document.getElementById("modal-container");
+		document.addEventListener("click", function (event) {
+			if (event.target === modal) {
+				onClose();
+			}
+		});
+	}, []);
+
 	return (
-		<div className="modal-container">
-			<div className="modal-content">
+		<div className="modal-container" id="modal-container">
+			<div className="modal-content" id="modal-content">
 				<div className="modal-heading">
 					<h4>Basic Modal</h4>
 					<button onClick={onClose}>{closeIcon}</button>
