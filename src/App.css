@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
 	box-sizing: border-box;
 }
@@ -20,11 +21,12 @@ button {
 	cursor: pointer;
 }
 
+/* Card Styling */
 .card-gallery {
 	display: flex;
 	flex-wrap: wrap;
-	gap:20px;
-	margin: 15px ;
+	gap: 20px;
+	margin: 15px;
 	margin-left: 30px;
 }
 
@@ -34,10 +36,6 @@ button {
 	border: 1px solid #e8e8e8;
 	overflow: hidden;
 	font-size: 14px;
-}
-
-.card:nth-child(4n) {
-	/* margin-right: 0; */
 }
 
 .card-image {
@@ -93,7 +91,8 @@ button {
 	border-right: 1px solid #e8e8e8;
 }
 
-.icon-btn,.modal-heading > button {
+.icon-btn,
+.modal-heading > button {
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -102,13 +101,14 @@ button {
 
 .icon-btn i {
 	font-size: 20px;
+	color: rgba(0, 0, 0, 0.65);
 }
 
-.like-icon {
+#like-icon i {
 	color: rgb(255, 0, 0);
 }
 
-
+/* Modal and Form Styling */
 
 .modal-container {
 	position: fixed;
@@ -119,92 +119,164 @@ button {
 	background-color: rgba(0, 0, 0, 0.5);
 	display: block;
 	z-index: 9999;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
 	position: absolute;
 	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
-	padding: 20px;
+	padding-bottom: 20px;
 	border-radius: 8px;
 	width: 40%;
-  }
+}
 
-  .modal-heading {
+.modal-heading {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-bottom: 1px solid rgba(18, 0, 0, 0.4);
+	padding: 16px 24px;
+	color: rgba(0, 0, 0, 0.65);
+	background: #fff;
+	border-bottom: 1px solid #e8e8e8;
+	border-radius: 4px 4px 0 0;
+}
 
-  }
+.modal-heading h4 {
+	margin: 0;
+	color: rgba(0, 0, 0, 0.85);
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 22px;
+}
 
-  .form {
+.modal-heading button {
+	color: rgba(0, 0, 0, 0.45);
+}
+
+.form {
 	padding: 25px 0;
 	display: flex;
 	flex-direction: column;
 	gap: 25px;
 	align-items: flex-end;
-	padding-bottom: 70px ;
-	border-bottom: 1px solid rgba(18, 0, 0, 0.4);
-  }
+	padding-bottom: 70px;
+	padding-right: 20px;
+	border-bottom: 1px solid #e8e8e8;
+}
 
-  .form-element {
+.form-element {
 	width: 90%;
 	display: flex;
-	gap: 20px;
-	align-items: center;
+}
 
-  }
-  
-  .form-element label {
-    width: 100px;
-  }
+.required {
+	display: inline-block;
+	margin-right: 4px;
+	color: #f5222d;
+	font-size: 14px;
+	font-family: SimSun, sans-serif;
+	line-height: 1;
+}
 
-  .input-container {
+.form-element label {
+	width: 100px;
+  margin-top: 5px;
+}
+
+.input-container {
 	width: 100%;
-  }
+}
 
-  .input-container input {
+.input-container input {
 	padding: 10px;
 	width: 100%;
-	outline: none;
-  }
- 
-  .error {
+	box-sizing: border-box;
+	margin: 0;
+	font-variant: tabular-nums;
+	height: 32px;
+	padding: 4px 11px;
+	color: rgba(0, 0, 0, 0.65);
+	font-size: 14px;
+	line-height: 1.5;
+	background-color: #fff;
+	border-radius: 4px;
+	transition: all 0.3s;
+}
+
+.input-container input:focus {
+	outline: #1890ff;
+}
+
+.input-border {
+	border: 1px solid #d9d9d9;
+}
+
+.required-input {
+	border: 1px solid red;
+}
+
+.error {
 	color: red;
-  }
-  
-  .button-container {
+}
+
+.button-container {
 	display: flex;
 	justify-content: flex-end;
 	gap: 15px;
 	margin-top: 20px;
-  }
-  
-  .button-container button {
-	padding: 15px;
-	font-size: 18px;
-	border-radius: 5px;
-  }
-  .close-button {
-	border: 1px solid rgb(182, 176, 176);
-	background-color: #fff;
-  }
+}
 
-  .save-button {
-	border: 1px solid #6949f5;
-	background-color: #6949f5;
+.close-button {
+	line-height: 1.499;
+	position: relative;
+	display: inline-block;
+	font-weight: 400;
+	white-space: nowrap;
+	text-align: center;
+	background-image: none;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+	height: 32px;
+	padding: 0 15px;
+	font-size: 14px;
+	border-radius: 4px;
+	color: rgba(0, 0, 0, 0.65);
+	background-color: #fff;
+	border: 1px solid #d9d9d9;
+}
+
+.save-button {
 	color: #fff;
-  }
-  
-  @media screen and (max-width: 1200px) {
+	background-color: #1890ff;
+	border-color: #1890ff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+	line-height: 1.499;
+	position: relative;
+	display: inline-block;
+	font-weight: 400;
+	white-space: nowrap;
+	text-align: center;
+	background-image: none;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+	height: 32px;
+	padding: 0 15px;
+	font-size: 14px;
+	border-radius: 4px;
+	border: 1px solid #d9d9d9;
+	margin-right: 15px;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1200px) {
 	.card {
 		width: calc(33.33% - 20px);
 	}
+
 	.modal-content {
-		width: 80%;
+		width: 50%;
 	}
 }
 
@@ -216,5 +288,9 @@ button {
 	.card-gallery {
 		gap: 20px;
 		margin: 15px auto;
+	}
+
+	.modal-content {
+		width: 95%;
 	}
 }

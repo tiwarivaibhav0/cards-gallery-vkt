@@ -51,7 +51,7 @@ const Card = ({ card, index, setCardsData }) => {
         <li>
           <span>
             <button
-              className="icon-btn like-icon"
+              className="icon-btn " id="like-icon"
               onClick={() => toggleLike(index)}
             >
               {card.liked ? <i>{filledLikeButton}</i> : <i>{likeButton}</i>}
