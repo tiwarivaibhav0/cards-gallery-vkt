@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { closeIcon, emailRegex, formFields } from "../utils/constants";
 
 const Modal = ({ data, setData, index, setCardsData }) => {
@@ -55,6 +55,7 @@ const Modal = ({ data, setData, index, setCardsData }) => {
 		onSave();
 	};
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const onClose = () => {
 		setData(undefined);
 	};
@@ -70,9 +71,19 @@ const Modal = ({ data, setData, index, setCardsData }) => {
 		});
 	};
 
+	useEffect(() => {
+		const modal = document.getElementById('modal-container');
+		document.addEventListener("click", function (event) {
+			if (event.target === modal) {
+				onClose();
+			}
+		});
+
+	}, [onClose]);
+
 	return (
-		<div className="modal-container">
-			<div className="modal-content">
+		<div className="modal-container" id="modal-container">
+			<div className="modal-content" id="modal-content">
 				<div className="modal-heading">
 					<h4>Basic Modal</h4>
 					<button onClick={onClose}>{closeIcon}</button>
