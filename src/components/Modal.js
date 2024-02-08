@@ -86,7 +86,6 @@ const Modal = ({ data, setData, index, setCardsData }) => {
 								{formFields[item]} :
 							</label>
 							<div className="input-container">
-								<>{console.log(errors[item])}</>
 								<input
 									type="text"
 									value={formData[item]}
