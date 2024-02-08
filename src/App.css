@@ -80,11 +80,24 @@ ul {
 }
 
 .card-icons > li {
+	text-align: center;
 	flex: 33.33;
 }
 
 .card-icons > li:not(:last-child) {
 	border-right: 1px solid #e8e8e8;
+}
+
+.icon-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	outline: none;
+}
+
+.icon-btn i {
+	color: rgb(255, 0, 0);
+	font-size: 20px;
 }
 
 @media screen and (max-width: 1200px) {
