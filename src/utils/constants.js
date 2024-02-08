@@ -7,7 +7,7 @@ export const staticCardsData = [
 		website: "http://hildegard.org",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 0,
+		liked : false,
 	},
 	{
 		id: 2,
@@ -17,7 +17,7 @@ export const staticCardsData = [
 		website: "http://anastasia.net",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 0,
+		liked : false,
 	},
 	{
 		id: 3,
@@ -27,7 +27,7 @@ export const staticCardsData = [
 		website: "http://ramiro.info",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 0,
+		liked : false,
 	},
 	{
 		id: 4,
@@ -37,7 +37,7 @@ export const staticCardsData = [
 		website: "http://kale.biz",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 0,
+		liked : false,
 	},
 	{
 		id: 5,
@@ -47,7 +47,7 @@ export const staticCardsData = [
 		website: "http://demarco.info",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 0,
+		liked : false,
 	},
 	{
 		id: 6,
@@ -57,7 +57,7 @@ export const staticCardsData = [
 		website: "http://ola.org",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 0,
+		liked : false,
 	},
 	{
 		id: 7,
@@ -67,7 +67,7 @@ export const staticCardsData = [
 		website: "http://elvis.io",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 0,
+		liked : false,
 	},
 	{
 		id: 8,
@@ -77,7 +77,7 @@ export const staticCardsData = [
 		website: "http://jacynthe.com",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 0,
+		liked : false,
 	},
 	{
 		id: 9,
@@ -87,7 +87,7 @@ export const staticCardsData = [
 		website: "http://conrad.com",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 0,
+		liked : false,
 	},
 	{
 		id: 10,
@@ -97,7 +97,7 @@ export const staticCardsData = [
 		website: "http://ambrose.net",
 		imageUrl:
 			"https://avatars.dicebear.com/v2/avataaars/Bret.svg?options[mood][]=happy",
-		liked: 1,
+		liked: true,
 	},
 ];
 
